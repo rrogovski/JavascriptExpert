@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1be477ee-ccd3-42b8-8313-6451366fbbb7",
+        "name": "Charger",
+        "releaseYear": 2021,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "1b359d70-24d0-4bea-9640-2f7a0160a75c",
+        "name": "CX-9",
+        "releaseYear": 2021,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "59abad87-bd51-4a80-9011-141e6590eb6b",
+        "name": "Golf",
+        "releaseYear": 2021,
+        "available": true,
+        "gasAvailable": true
+    }
+]

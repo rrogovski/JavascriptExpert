@@ -22,12 +22,12 @@ describe('carService Suite Tests', () => {
         })
     })
 
-    before(() => {
+    beforeEach(() => {
         sandbox = sinon.createSandbox();
     })
 
-    after(() => {
-        sandbox = sinon.restore();
+    afterEach(() => {
+        sandbox.restore();
     })
 
     it('Should retrieve a random position from an array', () => {
