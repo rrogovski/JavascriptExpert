@@ -9,9 +9,9 @@ export const save = async (data) => {
     let pathNormalized = databaseFile.replace(/%20/gi,' ')
 
     if(process.platform === 'win32') {
-        console.log('pathNormalized => ', pathNormalized)
-        console.log('pathNormalized => ', pathNormalized.substr(3, pathNormalized.length))
-        pathNormalized = pathNormalized.substr(3, pathNormalized.length)
+        // console.log('pathNormalized => ', pathNormalized)
+        // console.log('pathNormalized => ', pathNormalized.substring(3, pathNormalized.length))
+        pathNormalized = pathNormalized.substring(3, pathNormalized.length)
     }
         
     const currentData = JSON.parse(await readFile(pathNormalized))
