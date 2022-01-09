@@ -6,10 +6,13 @@ export const save = async (data) => {
     // console.log('Meta url => ', import.meta.url)
     // console.log('databaseFile => ', databaseFile)
     // console.log('databaseFile regex => ', databaseFile.replace(/%20/gi,' '))
-    const pathNormalized = databaseFile.replace(/%20/gi,' ')
+    let pathNormalized = databaseFile.replace(/%20/gi,' ')
 
-    if(process.platform === 'win32')
-        pathNormalized = pathNormalized
+    if(process.platform === 'win32') {
+        console.log('pathNormalized => ', pathNormalized)
+        console.log('pathNormalized => ', pathNormalized.substr(3, pathNormalized.length))
+        pathNormalized = pathNormalized.substr(3, pathNormalized.length)
+    }
         
     const currentData = JSON.parse(await readFile(pathNormalized))
     currentData.push(data)
