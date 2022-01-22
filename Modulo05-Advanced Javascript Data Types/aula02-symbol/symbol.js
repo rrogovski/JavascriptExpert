@@ -156,10 +156,20 @@ assert.deepStrictEqual([ ...myDate ], expectedDatesIterator);
 //     }
 // })()
 
+async function getFromAsyncIterator() {
+    const dates = [];
+    for await (const item of myDate) {
+        dates.push(item)
+    }
+
+    console.log('getFromAsyncIterator dates => ', dates);
+    return dates;
+}
+
 (async () => {
-    const dates = await Promise.all([ ...myDate ]);
-    console.log('dates => ', dates);
-    // assert.deepStrictEqual(dates, expectedDatesAsyncIterator);
+    const promisesValues = await Promise.all([ getFromAsyncIterator() ]);
+    console.log('dates => ', promisesValues[0]);
+    assert.deepStrictEqual(promisesValues[0], expectedDatesAsyncIterator);
 })()
 
 // Node usa o Symbol para muito coisa, principalmente para criar propriedades privadas
