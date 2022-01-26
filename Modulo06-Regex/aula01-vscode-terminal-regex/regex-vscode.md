@@ -48,10 +48,10 @@ um _replace_ para vazio. E usamos os `[]`, para dizer que ou vai ser `.` ou vai 
 Vamos considerar o exemplo abaixo como um _csv_ com _lastname_ e _firstname_. Vamos usar uma expressão para esse padrão e alterar o _csv_ para um _json_.
 
 ```csv
-Raye, Frankie
-Danvers, Carol
-Warlock, Adam
-Radd, Norrin
+{"fisrtName": "Frankie", "lastName": "Raye"}
+{"fisrtName": "Carol", "lastName": "Danvers"}
+{"fisrtName": "Adam", "lastName": "Warlock"}
+{"fisrtName": "Norrin", "lastName": "Radd"}
 ```
 Primeiro vamos tentar entender o padrão. Podemos usar `\w` para pegar cada _word character_ de forma separada. Note que `\w` equivale à `[a-zA-Z0-9_]`.
 
@@ -86,8 +86,8 @@ E ao executar o _replace_, temos:
 ![Exemplo de regex](./img/12.png "Exemplo de regex")
 
 ```json
-{fisrtName: "Frankie", lastName: "Raye"}
-{fisrtName: "Carol", lastName: "Danvers"}
-{fisrtName: "Adam", lastName: "Warlock"}
-{fisrtName: "Norrin", lastName: "Radd"}
+{"fisrtName": "Frankie", "lastName": "Raye"}
+{"fisrtName": "Carol", "lastName": "Danvers"}
+{"fisrtName": "Adam", "lastName": "Warlock"}
+{"fisrtName": "Norrin", "lastName": "Radd"}
 ```
