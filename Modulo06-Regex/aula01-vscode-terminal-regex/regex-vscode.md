@@ -91,3 +91,13 @@ E ao executar o _replace_, temos:
 {"fisrtName": "Adam", "lastName": "Warlock"}
 {"fisrtName": "Norrin", "lastName": "Radd"}
 ```
+## Exemplo MD para HTML
+
+Vamos agora fazer uma alteração de um _markdown_ para _HTML_.
+
+```md
+O [Rodrigo Rogovski](https://rogovski.dev) é uma cara que faz uns códigos aí. Caso queria seguir nas redes [Twitter](http://twitter.com/RRogovski), [Instagram](https://instagram.com/rfrogovski) ou [LinkedIn](https://www.linkedin.com/in/rogovski/)
+```
+Resultado do _md_ acima:
+
+O [Rodrigo Rogovski](https://rogovski.dev) é uma cara que faz uns códigos aí. Caso queria seguir nas redes [Twitter](http://twitter.com/RRogovski), [Instagram](https://instagram.com/rfrogovski) ou [LinkedIn](https://www.linkedin.com/in/rogovski/)
