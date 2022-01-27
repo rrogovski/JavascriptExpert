@@ -96,8 +96,20 @@ E ao executar o _replace_, temos:
 Vamos agora fazer uma alteração de um _markdown_ para _HTML_.
 
 ```md
-O [Rodrigo Rogovski](https://rogovski.dev) é uma cara que faz uns códigos aí. Caso queria seguir nas redes [Twitter](http://twitter.com/RRogovski), [Instagram](https://instagram.com/rfrogovski) ou [LinkedIn](https://www.linkedin.com/in/rogovski/)
+O [Rodrigo Rogovski](https://rogovski.dev) é uma cara que faz uns códigos aí. Caso queria seguir nas redes [Twitter](http://twitter.com/RRogovski), [Instagram](https://instagram.com/rfrogovski) ou [LinkedIn](https://www.linkedin.com/in/rogovski/).
+
+Ou tentar nos [Códigos Escondidos](https://unematica.com/).
 ```
 Resultado do _md_ acima:
 
-O [Rodrigo Rogovski](https://rogovski.dev) é uma cara que faz uns códigos aí. Caso queria seguir nas redes [Twitter](http://twitter.com/RRogovski), [Instagram](https://instagram.com/rfrogovski) ou [LinkedIn](https://www.linkedin.com/in/rogovski/)
+O [Rodrigo Rogovski](https://rogovski.dev) é uma cara que faz uns códigos aí. Caso queria seguir nas redes [Twitter](http://twitter.com/RRogovski), [Instagram](https://instagram.com/rfrogovski) ou [LinkedIn](https://www.linkedin.com/in/rogovski/).
+
+Ou tentar nos [Códigos Escondidos](https://unematica.com/).
+
+Vamos analisar o padrão desse texto. Queromos extrair o título que está entre `[]` e o link que está entre `()`. Para isso vamos fazer uma pesquisa literal com `\` e o caracter que desejamos, nesse caso `[`. Como queremos tudo que está dentro do `[` incial e do `]` final. Usamos `\[(.*)\]`, mas dessa forma ele pega o primeiro e vai até a última ocorrência da linha. E não é o padrão que desejamos.
+
+Para que ele pare o primeiro `]` que seria o que fecha o anterior pode usar o `?` também conhecido como _non-greedy_, assim ele olha até o delimitador `]`. Dessa forma temos o nosso primeiro grupo.
+
+Agora vamos para o nosso _link_ que tem um padrão bem parecido. Mas como `()` são usado para grupos, lembre de usar `\` antes de cada parentese para considerar ele em uma busca literal. Vamos informar para pegar dentro dos `()` para pegar o que começa com _http_ ou _https_, assim temos o padrão `\(([http|https].*?)\)`.
+
+![Exemplo de regex](./img/13.png "Exemplo de regex")
