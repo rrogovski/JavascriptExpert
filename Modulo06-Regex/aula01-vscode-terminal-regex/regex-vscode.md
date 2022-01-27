@@ -128,3 +128,42 @@ O <a href="https://rogovski.dev">Rodrigo Rogovski</a> é uma cara que faz uns c�
 
 Ou tentar nos <a href="https://unematica.com/">Códigos Escondidos</a>.
 ```
+
+## Regex no terminal
+
+Para esse exemplo, vamos considerar o diretório raiz desse projeto, vamos pesquisar todos os arquivos que tiveram `.test.js`. Vamos o comando:
+
+```bash
+find . -name *.test.js
+```
+Mas usando o comando dessa forma, foi listado também coisas da _node\_modules_, para ignorar esse diretório:
+
+```bash
+find . -name *.test.js -not -path '*node_modules**'
+```
+Onde, usando as opções `-not -path` informamos para ignorar tudo o que contiver _node\_modules_ usando `*node_modules` e colando os `**` para ignorar também os arquivos dentro desse diretório.
+
+Vamos buscar agora todos os arquivos `.js`.
+
+```bash
+find . -name *.js -not -path '*node_modules**'
+```
+
+E vamos usar uma biblioteca _node_ chamada _ipt_. Fazendo a instalação global com:
+
+```bash
+npm i -g ipt
+```
+
+Com o _ipt_ instalado, vamos fazer o _find_ novamente e passar o resultado dessa pesquisa para o _ipt_.
+
+```bash
+find . -name *.js -not -path '*node_modules**' | ipt
+```
+Dessa forma, demos um painel iterativo onde podemos selecionar os arquivo que desejamos. Onde o _find_ passa pelo _pipe_ `|` o _array_ de _bytes_ que forem chegando vão sendo passados para o _ipt_.
+
+Agora para o próximo exemplo, vamos usar os arquivos do _Modulo02-Javascript Testing/aula05-tdd-project-pt03_. Fazendo uma cópia para o nosso exemplo.
+
+```bash
+cp -r ../../Modulo02-Javascript\ Testing/aula05-tdd-project-pt03 .
+```
