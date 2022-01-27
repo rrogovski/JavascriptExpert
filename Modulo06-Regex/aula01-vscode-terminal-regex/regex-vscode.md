@@ -113,3 +113,18 @@ Para que ele pare o primeiro `]` que seria o que fecha o anterior pode usar o `?
 Agora vamos para o nosso _link_ que tem um padrão bem parecido. Mas como `()` são usado para grupos, lembre de usar `\` antes de cada parentese para considerar ele em uma busca literal. Vamos informar para pegar dentro dos `()` para pegar o que começa com _http_ ou _https_, assim temos o padrão `\(([http|https].*?)\)`.
 
 ![Exemplo de regex](./img/13.png "Exemplo de regex")
+
+Agora com o padrão `\[(.*?)\]\(([http|https].*?)\)`, podemos fazer um _replace_ no _VSCode_.
+
+![Exemplo de regex](./img/14.png "Exemplo de regex")
+
+![Exemplo de regex](./img/15.png "Exemplo de regex")
+
+
+Assim teremos o _replace_ para:
+
+```html
+O <a href="https://rogovski.dev">Rodrigo Rogovski</a> é uma cara que faz uns códigos aí. Caso queria seguir nas redes <a href="http://twitter.com/RRogovski">Twitter</a>, <a href="https://instagram.com/rfrogovski">Instagram</a> ou <a href="https://www.linkedin.com/in/rogovski/">LinkedIn</a>.
+
+Ou tentar nos <a href="https://unematica.com/">Códigos Escondidos</a>.
+```
