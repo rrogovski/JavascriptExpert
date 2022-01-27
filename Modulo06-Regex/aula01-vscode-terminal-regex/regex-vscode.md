@@ -167,3 +167,22 @@ Agora para o próximo exemplo, vamos usar os arquivos do _Modulo02-Javascript Te
 ```bash
 cp -r ../../Modulo02-Javascript\ Testing/aula05-tdd-project-pt03 .
 ```
+Como esses arquivos não usam `'use strict';`, vamos incluí-lo em todos os arquivos do nosso projeto.
+
+Então vamos inserir nesses arquivos o conteúdo `'use strict';`. Com _ipt_ usando a opção `-o` para selecionar múltiplos arquivos. Também vamos utilizar o `xargs` para que execute um determinado comando para cada arquivos for retornado do `find`. Então para cada arquivo selecionado do _ipt_, vamos armazenar a informação em uma variável `{file}` e simplesmente dar um `echo` concatenado com a _string_ `'Selecionado => '` com a variável `{file}`. Para testarmos o nosso padrão.
+
+```bash
+CONTENT="'use strict';"
+find . -name *.js -not -path '*node_modules**' \
+| ipt -o \
+| xargs -I '{file}' echo 'Selecionado => ' {file}
+```
+Agora vamos para o nosso caso de substituição, ou melhor, incluir o `'use strict';`. Para isso vamos usar o `sed` _stream editor for filtering and transforming text_ ([SED Comandos](http://sed.sourceforge.net/sed1line_pt-BR.html) e [SED Comandos+](https://gist.github.com/lamb-mei/60b98e044bfff667165f77c995ed72bd)) com as opções `-i` para editar o arquivo e o `""` seria um sufixo para mander os arquivos originais e criar novos arquivos com o nome anterior junto com esse sufixo. E o `-e` recebe a nossa expressão, que será `'1s/^/\'$CONTENT'\`, na primeira linha `1s` no seu início `/^`, inserior o `/\'$CONTENT'\` conteúdo que criamos com o `CONTENT` e para quebrar a linha, vamos simular um `\n` com `/g` e por fim inserir o conteúdo do _stream_ da variável `{file}`.
+
+```bash
+CONTENT="'use strict';"
+find . -name *.js -not -path '*node_modules**' \
+| ipt -o \
+| xargs -I '{file}' sed -i "" -e '1s/^/\'$CONTENT'\
+/g' {file}
+```
