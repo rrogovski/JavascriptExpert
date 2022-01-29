@@ -198,7 +198,7 @@ find . -name *.js -not -path '*node_modules**' \
 | ipt -o \
 | xargs -I '{file}' sed -i {file} -e '1s/^/\'"$CONTENT"'\n\n/g'
 ```
-Para executar em todos os arquivos em o uso do _ipt_:
+Para executar em todos os arquivos sem o uso do _ipt_:
 
 ```bash
 CONTENT="'use strict';"
