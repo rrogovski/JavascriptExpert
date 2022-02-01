@@ -9,3 +9,10 @@
 ```
 
 ![Exemplo de regex](./img/01.png "Exemplo de regex")
+
+Para fazer a validação das expressões, vamos instalar _safe-regex_.
+
+```bash
+npm i safe-regex
+```
+
