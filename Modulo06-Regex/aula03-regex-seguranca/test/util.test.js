@@ -9,4 +9,11 @@ describe('Util Suite Tests', () => {
 
       expect(() => evaluteRegex(unsafeRegex)).to.throw(InvalidRegexError, `This ${unsafeRegex} is unsafe, Milorde!`);
   })
+
+  it('#evaluateRegex should not throw an error using a safe regex', () => {
+    const safeRegex = /^([a-z])$/;
+
+    expect(() => evaluteRegex(safeRegex)).to.not.throw;
+    expect(() => evaluteRegex(safeRegex)).to.be.ok;
+  })
 });
