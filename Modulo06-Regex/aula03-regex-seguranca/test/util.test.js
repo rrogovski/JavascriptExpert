@@ -7,6 +7,17 @@ describe('Util Suite Tests', () => {
   it('#evaluteRegex should throw an error using an unsafe regex', () => {
       const unsafeRegex = /^([a-zA-Z|0-9]+\s?)+$/;
 
+      // Teste ver o tempo que o node leva para executar o comando e se vai dar crash.
+      /*
+      /usr/bin/time -f "%E real,%U user,%S sys, %P proc" \
+        node --eval "/^([a-zA-Z|0-9]+\s?)+$/.test('eaeee como vai voce e como vai voce?') && console.log('Vai dar crash?')"
+      */
+
+      /*
+      /usr/bin/time -f "%E real,%U user,%S sys, %P proc" \
+        node --eval "/^([a-zA-Z|0-9]+\s?)+$/.test('eaeee como vai voce e como vai voce e como vai voce?') && console.log('Vai dar crash?')"
+      */
+
       expect(() => evaluteRegex(unsafeRegex)).to.throw(InvalidRegexError, `This ${unsafeRegex} is unsafe, Milorde!`);
   })
 
